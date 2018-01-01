@@ -24,11 +24,12 @@
                           <td><%=transaction.TransactionID %></td>
                           <td><%=transaction.Transaction_Type %></td>
                           <td>
-                            <% if(transaction.Disputed === false){%>
                             <a href="/disputed/<%=transaction._id %>">
+                                <% if(transaction.Disputed === false){%>
                                 <button type="button" class="btn btn-light btn-sm">Dispute</button>
+                                <% } %>
                             </a>
-                            <% } %>
+                            
                           </td>
                           </tr>
                           <% num++ %>
