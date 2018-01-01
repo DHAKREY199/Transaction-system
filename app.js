@@ -15,9 +15,9 @@ var Amount, new_trans;
     
  
     //Connecting with Mongodb    
-    mongoose.connect("mongodb://localhost/user_info");
+        //mongoose.connect("mongodb://localhost/user_info");
     // Connecting with mongodb on mlab
-    //mongoose.connect("mongodb://Himanshu:abc456@ds133077.mlab.com:33077/user_info");
+    mongoose.connect("mongodb://Himanshu:abc456@ds133077.mlab.com:33077/user_info");
 
     
     app.use(bodyParser.urlencoded({extended:true}));
