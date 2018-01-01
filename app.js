@@ -150,7 +150,8 @@ var Amount, new_trans;
                         Clientname : req.body.client_name, 
                         Amount: req.body.amount, 
                         TransactionID : req.body.transaction_id, 
-                        Transaction_Type : req.body.transaction_type
+                        Transaction_Type : req.body.transaction_type,
+                        Disputed : false
                     };
         Transaction.create(new_trans, function(err, newBlog){
             if(err){
@@ -225,7 +226,7 @@ var Amount, new_trans;
         console.log(req.body);
         req.body.san = req.sanitize(req.body._id);
         console.log(req.body.san);
-        var new_trans = {Clientname : req.body.client_name, Amount: req.body.amount, TransactionID : req.body.transaction_id, Transaction_Type : req.body.transaction_type};
+        var new_trans = {Clientname : req.body.client_name, Amount: req.body.amount, TransactionID : req.body.transaction_id, Transaction_Type : req.body.transaction_type, Disputed : false};
         Transaction.findByIdAndUpdate(req.params.id, new_trans,{new: true}, function(err, updatedBlog){
             if(err){
                 res.redirect("/admin/req.params.id");
