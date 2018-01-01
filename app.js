@@ -14,10 +14,12 @@ var express                 = require("express"),
 var Amount, new_trans;
     
  
-    //Connecting with Mongodb    
+    //Connecting with Mongodb on cloud9
         //mongoose.connect("mongodb://localhost/user_info");
     // Connecting with mongodb on mlab
-    mongoose.connect("mongodb://Himanshu:abc456@ds133077.mlab.com:33077/user_info");
+    //mongoose.connect("mongodb://Himanshu:abc456@ds133077.mlab.com:33077/user_info");
+    // connecting with mlab on heroku
+    mongoose.connect(process.env.DATABASE);
 
     
     app.use(bodyParser.urlencoded({extended:true}));
