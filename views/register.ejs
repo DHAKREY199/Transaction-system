@@ -1,0 +1,21 @@
+<% include   partials/header %>
+<div class="container w-25 p-3">
+
+      <form class="form-signin" action="/register" method="post">
+        <h2 class="form-signin-heading" id="login_h2"><i class="fa fa-paper-plane" aria-hidden="true"></i> Create Account</h2>
+        <div class="login_seperation">
+            <label for="inputEmail" class="sr-only">User Name</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="username" required autofocus name ="username">
+        </div>
+        <div class="login_seperation">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block btn btn-dark login_button" type="submit">Register</button>
+      </form>
+      <div>
+        <a href="/login" id="a_login">Back to login..</a>
+      </div>
+      
+    </div> 
+<% include   partials/footer %>

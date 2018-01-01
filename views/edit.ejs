@@ -1,0 +1,33 @@
+<% include   partials/header %>
+<div class="container">
+    <h1 id="h1_welcome"> Edit Transaction</h1>
+<form action="/admin/<%= transaction._id %>?_method=PUT" method="post" id = "edit_form">
+    <div>
+                    <h5>Client Name :
+                    <input type = "text" value="<%= transaction.Clientname %>" name = "client_name"><br/>
+                    </h5>
+            </div>
+            <div>
+            <h5>Transaction Type : 
+                    <select name="transaction_type">
+                          <option value="purchase">Purchase</option>
+                          <option value="sell">Sell</option>
+                    </select> <br />
+            </h5>
+            </div>
+            <div>
+            <h5>Transaction ID :
+                <input type="text" value="<%= transaction.TransactionID %>" name = "transaction_id"> <br />
+                </h5>
+            </div>
+            
+            <div>
+            <h5>Amount :
+                <input type="number" value="<%= transaction.Amount %>" name= "amount"> <br />
+                </h5>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn btn-dark login_button" type="submit">Save</button>
+    
+</form>
+</div>
+<% include   partials/footer %>

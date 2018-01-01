@@ -1,0 +1,73 @@
+<% include   partials/header %>
+<% var num = 1; %>
+<div class="container">
+    <a href="/login" id = "a_logout"><i class="fa fa-paper-plane" aria-hidden="true"></i> Log out</a>
+    <br />
+</div>
+<div class="container"><h1 id="h1_welcome">Welcome, admin</h1></div>
+<div class="container">
+  <div id="create_new_div">
+    <a href = "/admin/new" id="a_create_new"><i class="fa fa-plus" aria-hidden="true"></i> Create New Transaction</a>
+    <br />
+  </div>
+  <div id="userlist_div">
+      <form action="/user_transaction" method="post">
+              <input list="suggestions" name="user_trans" placeholder="Select Client">
+              <datalist id="suggestions">
+                    <% users.forEach(function(user){ %>
+                        <% if(user.username != "John Smith"){ %>
+                        <option value="<%=user.username %>">
+                          <% } %>
+                    <% }); %>
+              </datalist>
+      </form>
+  </div>
+  <div id="operator_div">
+      <form action="/admin/sort" method="post">
+        <select name="operator">
+            <option value="Less Than">Less Than</option>
+            <option value="Equal To">Equal To</option>
+            <option value="Greater Than">Greater Than</option>
+              
+        </select>
+        <input type="number" placeholder="Amount Field" name ="amount">
+      </form>
+  </div>
+</div>
+<br />
+        
+<div class="container">
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Client Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Transaction Type</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="table_color">
+    <% transactions.forEach(function(transaction){ %>
+                 <tr>
+                            <th><%=num %></th>
+                          <td><%=transaction.Clientname %></td>
+                          <td><%=transaction.Amount %></td>
+                          <td><%=transaction.TransactionID %></td>
+                          <td><%=transaction.Transaction_Type %></td>
+                          <td>
+                              <a href="/admin/<%=transaction._id %>/edit"><button type="button" class="btn btn-light btn-sm" >Edit</button></a>
+                              <a href="/admin/<%=transaction._id %>/delete"><button type="button" class="btn btn-light btn-sm">Delete</button></a>
+                              <% if(transaction.Disputed === true){%>
+                                <button type="button" class="btn btn-light btn-sm">Disputed</button>
+                              <% } %>
+                          </td>
+                          </tr>
+                          <% num++ %>
+            <% }); %>
+    
+  </tbody>
+</table>
+</div>      
+<% include   partials/footer %>

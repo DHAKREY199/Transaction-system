@@ -1,0 +1,40 @@
+<% include   partials/header %>
+<div class="container">
+    <a href="/login" id = "a_logout"><i class="fa fa-paper-plane" aria-hidden="true"></i> Log out</a>
+    <br />
+</div>
+<div class="container"><h1 id="h1_welcome">Welcome, <%= name %></h1></div>
+<% var num = 1; %>
+<div class="container">
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Transaction Type</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="table_color">
+    <% transactions.forEach(function(transaction){ %>
+                 <tr>
+                            <th><%=num %></th>
+                          <td><%=transaction.Amount %></td>
+                          <td><%=transaction.TransactionID %></td>
+                          <td><%=transaction.Transaction_Type %></td>
+                          <td>
+                            <% if(transaction.Disputed === false){%>
+                            <a href="/disputed/<%=transaction._id %>">
+                                <button type="button" class="btn btn-light btn-sm">Dispute</button>
+                            </a>
+                            <% } %>
+                          </td>
+                          </tr>
+                          <% num++ %>
+            <% }); %>
+    
+  </tbody>
+</table>
+</div>
+<% include   partials/footer %>
