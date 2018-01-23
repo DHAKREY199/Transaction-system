@@ -17,11 +17,13 @@
 
 # How to use -
 For entering admin section -
+
   1) username : John Smith
      password : 10000
   
 For entering clients section-
   login details of 2 clients are listed below-
+    
     1) username : James Borg 
        password : 20000
     
